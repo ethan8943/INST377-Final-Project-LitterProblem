@@ -1,42 +1,54 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jiahao's Labs' For INST377</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>INST_377 Final Project - Litter Problem</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   </head>
   <body>
-    <div>
-      <header><h1>Jiahao Chen's Labs For INST377</h1></header>
-      <div>
-        <div>
-          <h2>Album Names</h2>
-          <ol>
-            <li>Renaissance - Beyonce</li>
-            <li>Motomami - Rosalia</li>
-            <li>Strays - Margo Price</li>
-            <li>Mercy - John Cale</li>
-            <li>Furling - Meg Baird</li>
-          </ol>
+    <div class="wrapper">
+      <header class="header">
+        <h1>Litter Data</h1>
+      </header>
+      <div class="container">
+        <div class="left_section box">
+          <h3>Form Inputs</h3>
+          <form
+            action="https://data.princegeorgescountymd.gov/resource/9tsa-iner.json"
+            class="box main_form"
+          >
+          <button type="button" id="data_load">Load County Data</button>
+          <button type="button" id="data_clear">Clear County Data</button>
+
+            <div>
+              <label for="resto">Filter by Major Watersheds</label>
+              <input type="text" id="resto" name="resto" />
+            </div>
+            <div class = "buttons">
+            <button type="button" id="generate">Generate List</button>
+            </div>
+          </form>
         </div>
-        <div>
-          <h2>Image Carousel</h2>
-          <!-- <div>
-            <img src="images/mochi.gif" alt="A rice ball" /> 
-            <img src="images/mochi.jpg" alt="Another rice ball" /> 
-            <img src="images/mochi.png" alt="Third rice ball" />
-            <img src="images/mochi.svg" alt="Fourth ball of rice" />
-          </div> -->
-          <div>
-            <p>The first image is a gif which is a dancing mochi ball. The second image is a jpg which is a mochi ball in a bubble. The third image is a png which is mochi ball. The fourth image is a svg which is a mochi ball with Bézier handles</p>
+        <div class="right_section box">
+          <h3>Major Watersheds List</h3>
+
+          <div class="chart_container">
+            <canvas id="myChart"></canvas>
           </div>
+          
+
+          <ol class="box" id="watersheds_list">
+            A list of major watersheds
+          </ol>
+          <div class="lds-ellipsis" id="data_load_animation"><div></div><div></div><div></div><div></div></div>
         </div>
       </div>
     </div>
-    <footer>
-        MY GITHUB ACCOUNT NAME <a href="https://github.com/ethan8943/INST377-Lab-Work.git">My Github Account</a>
-    </footer>
+    <script src="./script.js"></script>
   </body>
 </html>
